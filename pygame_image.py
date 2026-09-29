@@ -21,17 +21,22 @@ def main():
             if event.type == pg.QUIT: return
 
         key_lst = pg.key.get_pressed() #練習10-3:キーの押下状態取得
-        exx = -1
-        exy = 0
+        ex2x = 0
+        ex2y = 0
+
         if key_lst[pg.K_UP]:
-            kt_rct.move_ip(0,-1)
+            ex2y -= 1
         if key_lst[pg.K_DOWN]:
-            kt_rct.move_ip(0,+1)
+            ex2y += 1
         if key_lst[pg.K_LEFT]:
-            kt_rct.move_ip(-1,0)
+            ex2x -= 1
         if key_lst[pg.K_RIGHT]:
-            kt_rct.move_ip(+2,0)
-        kt_rct.move_ip(exx,exy)
+            ex2x += 2
+            
+        ex1x = -1
+        ex1y = 0
+        kt_rct.move_ip(ex2x + ex1x, ex2y + ex1y)
+
 
         x=tmr%3200 #練習9
         screen.blit(bg_img, [-x, 0]) #練習5:背景画像を右から左に
